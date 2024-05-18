@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM') {
+            steps {
+                git 'https://github.com/classes-101/denish-app.git'
+            }
+        }
+        stage('install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'npm run build'
+                }
+        }
+        stage('deploy') {
+            steps {
+                sh 'sudo cp -r /var/lib/jenkins/workspace/angular-app/dist/denish-app/browser/* /var/www/html/ '
+            }
+        }
+    }
+}
