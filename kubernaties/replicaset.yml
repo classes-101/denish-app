@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs-example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dinesh
+  template:
+    metadata:
+      labels:
+        app: dinesh
+    spec:
+      containers:
+      - name: nginx
+        image: httpd
+        ports:
+        - containerPort: 80
