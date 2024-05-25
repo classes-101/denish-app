@@ -12,6 +12,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'sudo docker build -t jilu407/denish-app:$BUILD_NUMBER .'
+                sh 'sudo docker build -t jilu407/denish-app'
             }
         }
         stage('check image') {
@@ -27,7 +28,8 @@ pipeline {
         }               
         stage('Push Image to Docker Hub') {         
             steps{                            
-	           sh 'sudo docker push jilu407/denish-app:$BUILD_NUMBER'  
+	           sh 'sudo docker push jilu407/denish-app:$BUILD_NUMBER'
+             sh 'sudo docker push jilu407/denish-app'
 	           echo 'Push Image Completed'       
             }           
         }
