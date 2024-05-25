@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: httpd
+        image: jilu407/hari-app
         ports:
         - containerPort: 80
